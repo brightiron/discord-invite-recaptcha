@@ -48,7 +48,7 @@ yarn dev
 2. From your newly created app, create a 'Bot' in settings
 3. Copy the token generated for your newly created bot and set ```DISCORD_BOT_TOKEN```
 4. From your Discord Developer App, find your Client ID by visiting Settings > OAuth2.
-5. Visit (Replacing {CLIENT_ID} with the id from the previous step): https://discord.com/api/oauth2/authorize?client_id={CLIENT_ID}permissions=1&scope=bot and add the Bot to your server. 
+5. Visit (Replacing {CLIENT_ID} with the id from the previous step): https://discord.com/api/oauth2/authorize?client_id={CLIENT_ID}&permissions=1&scope=bot and add the Bot to your server. 
    1. You must have admin rights to your server to join the bot.
    2. The Bot will join your server but remain offline and will not interact with users. 
 
