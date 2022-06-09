@@ -30,7 +30,7 @@ export default async function handler(
   };
 
   const endpoint =
-    "https://discord.com/api/v6/channels/" +
+    "https://discord.com/api/v10/channels/" +
     process.env.DISCORD_CHANNEL_ID +
     "/invites";
   const response = await (await fetch(endpoint, options)).json();
