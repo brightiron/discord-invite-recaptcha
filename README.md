@@ -25,8 +25,8 @@ Rename .env.example to .env.local and configure environment variables:
 
 | Environment Variable                  | Description                                           | Required | 
 | --------------------------------------| -----------                                           | ---------| 
-| NEXT_PUBLIC_RECAPTCHA_SITE_KEY        | Site Key From reCaptcha                               | Y        |
-| RECAPTCHA_SECRET_KEY                  | Secret Key From reCaptcha                             | Y        | 
+| NEXT_PUBLIC_RECAPTCHA_SITE_KEY        | Site Key From reCAPTCHA                               | Y        |
+| RECAPTCHA_SECRET_KEY                  | Secret Key From reCAPTCHA                             | Y        | 
 | NEXT_PUBLIC_APP_NAME                  | App Name                                              | N        | 
 | DISCORD_BOT_TOKEN                     | Discord Bot Token                                     | Y        |            
 | DISCORD_INVITE_MAX_AGE                | Maximum Age of Invite in seconds. Defaults to 1 Day   | N        |
@@ -37,7 +37,7 @@ Start the dev sever
 yarn dev
 ```
 
-## Setting up Recaptcha
+## Setting up reCAPTCHA
 1. Register a new reCAPTCHA site here: https://www.google.com/recaptcha/admin/create 
 2. reCAPTCHA type should be set to reCAPTCHA v2
 3. Copy your Site Key and set ```NEXT_PUBLIC_RECAPTCHA_SITE_KEY```
