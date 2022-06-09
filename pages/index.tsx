@@ -26,10 +26,8 @@ const Home: NextPage = () => {
         token,
       }),
     };
-    const response = await fetch(endpoint, options);
-    const result = await response.json();
-    console.log("Captcha server-sided validation: ", result["response"]);
-    if (result["response"] === "Successful") {
+    const { response } = await (await fetch(endpoint, options)).json();
+    if (response === "success") {
       setHuman(true);
     }
   };
@@ -44,7 +42,6 @@ const Home: NextPage = () => {
       body: JSON.stringify({}),
     };
     const { response } = await (await fetch(endpoint, options)).json();
-    console.log(response, "response");
     if (response.code) {
       window.location.href = "https://discord.gg/" + response.code;
     }

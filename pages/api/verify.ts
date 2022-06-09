@@ -20,8 +20,8 @@ export default async function handler(
   const endpoint = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${response_key}`;
   const response = await (await fetch(endpoint, { method: "post" })).json();
   if (response.success) {
-    res.status(200).json({ response: "Successful" });
+    res.status(200).json({ response: "success" });
   } else {
-    res.status(200).json({ response: "Failed" });
+    res.status(200).json({ response: "error" });
   }
 }
