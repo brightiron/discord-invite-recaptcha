@@ -1,17 +1,14 @@
 import { Grid, Box, Typography } from "@mui/material";
 import { NextPage } from "next";
 import Image from "next/image";
-import { Title } from "../components/Title";
 import { useState } from "react";
 import { DiscordInvite } from "../components/DiscordInvite";
 import { StyledContainer } from "../components/StyledContainer";
 import { StyledPaper } from "../components/StyledPaper";
-import { StyledBox } from "../components/StyledBox";
 import { Recaptcha } from "../components/Recaptcha";
 
 const Home: NextPage = () => {
   const [human, setHuman] = useState(false);
-
   const appName = process.env.NEXT_PUBLIC_APP_NAME || "";
 
   const handleRecaptchaClick = async (token: any) => {
@@ -51,7 +48,7 @@ const Home: NextPage = () => {
       <Grid container display="flex" direction="column" alignItems="center">
         <Grid item>
           <StyledPaper elevation={3}>
-            <StyledBox>
+            <Box display="flex" alignItems="center" justifyContent="center" >
               <Box p={1} pt={4}>
                 <Image
                   src="/logo.svg"
@@ -61,7 +58,7 @@ const Home: NextPage = () => {
                   priority
                 />
               </Box>
-            </StyledBox>
+            </Box>
             <Box m={2}>
               <Typography variant="h6">{appName} Discord Invite</Typography>
             </Box>

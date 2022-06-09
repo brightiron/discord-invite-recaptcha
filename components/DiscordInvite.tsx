@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 
 export const DiscordInvite = (props: { onClick: () => void }) => (
-  <Box>
+  <Box pt={3}>
     <Button
       variant="contained"
       size="large"

@@ -15,7 +15,7 @@ export const Recaptcha = (props: {
       <Typography>Are you human?</Typography>
     </Box>
     <Box mt={2}>
-      <Box display="flex" pb={3} justifyContent="center">
+      <Box display="flex" justifyContent="center">
         <ReCAPTCHA
           sitekey={siteKey}
           onChange={props.onRecaptchaClick}
