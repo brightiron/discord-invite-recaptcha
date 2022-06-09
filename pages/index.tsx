@@ -1,7 +1,6 @@
-import { Grid, Box } from "@mui/material";
+import { Grid, Box, Typography } from "@mui/material";
 import { NextPage } from "next";
 import Image from "next/image";
-import { Header } from "../components/Header";
 import { Title } from "../components/Title";
 import { useState } from "react";
 import { DiscordInvite } from "../components/DiscordInvite";
@@ -53,7 +52,7 @@ const Home: NextPage = () => {
         <Grid item>
           <StyledPaper elevation={3}>
             <StyledBox>
-              <Header>
+              <Box p={1} pt={4}>
                 <Image
                   src="/logo.svg"
                   alt="Logo"
@@ -61,10 +60,10 @@ const Home: NextPage = () => {
                   height="38px"
                   priority
                 />
-              </Header>
+              </Box>
             </StyledBox>
             <Box m={2}>
-              <Title>{appName} Discord Invite</Title>
+              <Typography variant="h6">{appName} Discord Invite</Typography>
             </Box>
             <Recaptcha onRecaptchaClick={handleRecaptchaClick} />
 
