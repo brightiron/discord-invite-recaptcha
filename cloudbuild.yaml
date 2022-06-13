@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', '$IMAGE', '.', '--build-arg', 'NEXT_PUBLIC_RECAPTCHA_SITE_KEY=$NEXT_PUBLIC_RECAPTCHA_SITE_KEY', '--build-arg', 'NEXT_PUBLIC_APP_NAME=$NEXT_PUBLIC_APP_NAME']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', '$IMAGE']
