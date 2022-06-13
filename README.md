@@ -56,3 +56,8 @@ yarn dev
 
 ## Configuring Theme
 The theme/config.ts provides some basic color config to match your brand. For additional customization see the [MUI Theme Docs](https://mui.com/material-ui/customization/theming/)
+
+
+## Deploy to Google Cloud Run
+
+[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
