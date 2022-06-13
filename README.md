@@ -61,3 +61,28 @@ The theme/config.ts provides some basic color config to match your brand. For ad
 ## Deploy to Google Cloud Run
 
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
+
+- Once deployed go to the GCP console and locate your new Cloud Run service. 
+- Click 'Setup Continuous Deployment' 
+- Once setup. Navigate to Cloud Build - > Triggers and edit the trigger
+- In the substitution variables section add the following keys: 
+    - `_NEXT_PUBLIC_APP_NAME`
+    - `_NEXT_PUBLIC_RECAPTCHA_SITE_KEY`
+- Click 'Open Editor` and configure the build step to include build-args
+  ```
+   - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - '--no-cache'
+      - '-t'
+      - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
+      - '--build-arg'
+      - NEXT_PUBLIC_RECAPTCHA_SITE_KEY=$_NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+      - '--build-arg'
+      - NEXT_PUBLIC_APP_NAME=$_NEXT_PUBLIC_APP_NAME
+      - .
+      - '-f'
+      - Dockerfile
+    id: Build
+    ```
+-Optionally setup continuous deployment by clicking the 'Set Up Continuous Deployment' Button at the top of your cloud run project

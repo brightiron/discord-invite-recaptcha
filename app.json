@@ -8,10 +8,6 @@
     "http2": false
   },
   "env": {
-    "NEXT_PUBLIC_RECAPTCHA_SITE_KEY": {
-      "description": "Public Site Key for reCAPTCHA",
-      "required": true
-    },
     "RECAPTCHA_SECRET_KEY": {
       "description": "Private Key for reCAPTCHA"
     },
@@ -20,9 +16,7 @@
     },
     "DISCORD_CHANNEL_ID": {
       "description": "Channel ID invite should send user to"
-    },
-    "NEXT_PUBLIC_APP_NAME": {
-      "description": "Title for your App"
     }
-  }
+  },
+  "hooks": {}
 }
