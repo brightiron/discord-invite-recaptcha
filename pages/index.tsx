@@ -1,4 +1,4 @@
-import { Grid, Box, Typography } from "@mui/material";
+import { Grid, Box, Typography, CircularProgress } from "@mui/material";
 import { NextPage } from "next";
 import Image from "next/image";
 import { useState } from "react";
@@ -9,9 +9,11 @@ import { Recaptcha } from "../components/Recaptcha";
 
 const Home: NextPage = () => {
   const [human, setHuman] = useState(false);
+  const [loading, setLoading] = useState(false);
   const appName = process.env.NEXT_PUBLIC_APP_NAME || "";
 
   const handleRecaptchaClick = async (token: any) => {
+    setLoading(true);
     const endpoint = "/api/verify";
     const options = {
       method: "POST",
@@ -24,6 +26,7 @@ const Home: NextPage = () => {
     };
     const { response } = await (await fetch(endpoint, options)).json();
     if (response === "success") {
+      setLoading(false);
       setHuman(true);
     }
   };
@@ -48,7 +51,7 @@ const Home: NextPage = () => {
       <Grid container display="flex" direction="column" alignItems="center">
         <Grid item>
           <StyledPaper elevation={3}>
-            <Box display="flex" alignItems="center" justifyContent="center" >
+            <Box display="flex" alignItems="center" justifyContent="center">
               <Box p={1} pt={4}>
                 <Image
                   src="/logo.svg"
@@ -63,7 +66,11 @@ const Home: NextPage = () => {
               <Typography variant="h6">{appName} Discord Invite</Typography>
             </Box>
             <Recaptcha onRecaptchaClick={handleRecaptchaClick} />
-
+            {loading && (
+              <Box m={2}>
+                <CircularProgress />
+              </Box>
+            )}
             {human && <DiscordInvite onClick={handleDiscordLinkClick} />}
           </StyledPaper>
         </Grid>
