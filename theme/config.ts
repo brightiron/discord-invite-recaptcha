@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material/styles";
+//@ts-ignore
 import NHaasGroteskRegular from "../fonts/NHaasGroteskDSPro-65Md.woff2";
 
 export const theme = createTheme({
