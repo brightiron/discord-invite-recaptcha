@@ -6,6 +6,7 @@ import { DiscordInvite } from "../components/DiscordInvite";
 import { StyledContainer } from "../components/StyledContainer";
 import { StyledPaper } from "../components/StyledPaper";
 import { Recaptcha } from "../components/Recaptcha";
+import * as ga from "../lib/ga";
 
 const Home: NextPage = () => {
   const [human, setHuman] = useState(false);
@@ -24,6 +25,12 @@ const Home: NextPage = () => {
         token,
       }),
     };
+    ga.event({
+      action: "solveRecaptcha",
+      params: {
+        event: "click",
+      },
+    });
     const { response } = await (await fetch(endpoint, options)).json();
     if (response === "success") {
       setLoading(false);
@@ -40,6 +47,12 @@ const Home: NextPage = () => {
       },
       body: JSON.stringify({}),
     };
+    ga.event({
+      action: "joinDiscord",
+      params: {
+        event: "click",
+      },
+    });
     const { response } = await (await fetch(endpoint, options)).json();
     if (response.code) {
       window.location.href = "https://discord.gg/" + response.code;
